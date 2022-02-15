@@ -5,7 +5,7 @@ import pandas as pd
 
 class CsvExport(ExportPlugin):
 
-    def get_colums(self, assignments):
+    def get_columns(self, assignments):
         return [f"{a.name} | max_score: {int(a.max_score)}" for a in assignments]
 
     def get_assignments(self, gb: Gradebook):
@@ -20,7 +20,7 @@ class CsvExport(ExportPlugin):
         self.log.info("Exporting grades to %s", dest)
         assignments = self.get_assignments(gb)
         data = []
-        columns = ["Brukernavn"] + self.get_colums(assignments)
+        columns = ["Brukernavn"] + self.get_columns(assignments)
 
         for student in gb.students:
             row = [student.id]
