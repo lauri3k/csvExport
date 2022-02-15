@@ -36,8 +36,8 @@ class CsvExport(ExportPlugin):
 
         df = pd.DataFrame(data=data, columns=columns)
 
+        fn = "list_of_students.csv"
         try:
-            fn = "list_of_students.csv"
             names = pd.read_csv(fn, sep=";")
         except FileNotFoundError:
             self.log.error(f"Could not find '{fn}', make sure the file exists!")
