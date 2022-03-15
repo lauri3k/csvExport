@@ -44,5 +44,5 @@ class CsvExport(ExportPlugin):
             names = pd.DataFrame(columns=["Etternavn", "Fornavn", "Brukernavn", "Student-Id"])
 
         df = names.merge(df, on="Brukernavn", how="outer")
-        df.sort_values(by=['Etternavn', 'Fornavn'], inplace=True)
+        # df.sort_values(by=['Etternavn', 'Fornavn'], inplace=True)
         df.to_csv(dest, index=False, float_format='%.0f', sep=";", encoding="utf-8-sig")
